@@ -1,0 +1,13 @@
+{% include 'header.html' %}
+{% if messages %}
+<div class="container">
+    <ul class="messages" style="width:460px; margin: 0 auto; padding: 10px">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+{% block content %}
+{% endblock %}
+{% include 'footer.html' %}

@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% block content %}
+<style>
+    .home-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+</style>
+<h1>Home template</h1>
+<div class="home-container">
+    <div>
+        {% include "components/topic.html"%}
+    </div>
+
+    <div>
+        <h4>{{rooms__count}}</h4>
+        {% include "components/feed.html"%}
+    </div>
+   
+    <div>
+        {% include 'components/activity.html' %}
+    </div>
+</div>
+
+{% endblock content %}∂

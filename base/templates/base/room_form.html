@@ -1,0 +1,64 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<main class="create-room layout">
+  <div class="container">
+<div class="layout__box">
+
+<div class="layout__body">
+    <form class="form" action="" method="post">
+        {% csrf_token %}
+
+        <div class="form__group">
+          <label for="room_name">Enter A Topic</label>
+          <input type="text" name="topic" list="topic-list" required>
+          <datalist id="topic-list">
+            <select id="room_topic">
+              {% for topic in topics %}
+                <option value="{{topic.name}}"/>
+              {% endfor %}
+            </select>
+          </datalist>
+        </div>
+
+        {% for field in form %}
+        <div class="form__group">
+          <label for="room_name">{{field.label}}</label>
+          {{field}}
+        </div>
+        {% endfor %}
+        <!-- <div class="form__group">
+          <label for="room_name">Room Name</label>
+          <input id="room_name" name="room_name" type="text" placeholder="E.g. Mastering Python + Django" />
+        </div>
+    
+        <div class="form__group">
+          <label for="room_topic">Topic</label>
+          <input required type="text" name="topic" id="room_topic" list="topic-list" />
+          <datalist id="topic-list">
+            <select id="room_topic">
+              <option value="">Select your topic</option>
+              <option value="Python">Python</option>
+              <option value="Django">Django</option>
+            </select>
+          </datalist>
+    
+        </div>
+    
+    
+        <div class="form__group">
+          <label for="room_about">About</label>
+          <textarea name="room_about" id="room_about" placeholder="Write about your study group..."></textarea>
+        </div> -->
+        <div class="form__action">
+          <a class="btn btn--dark" href="{% url 'home'%}">Cancel</a>
+          <button class="btn btn--main" type="submit">Proceed</button>
+        </div>
+      </form>
+</div>
+  
+</div>
+</div>
+</main>
+{% endblock %}
+
